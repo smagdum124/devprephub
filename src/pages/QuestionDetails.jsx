@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
-import { reactQuestions } from "../data/reactQuestions";
+import { allQuestions } from "../data";
 import { Link } from "react-router-dom";
 
 const QuestionDetails = () => {
     const { slug } = useParams();
 
-    const question = reactQuestions.find(
+    const question = allQuestions .find(
         (item) => item.slug === slug
     );
 

@@ -14,6 +14,7 @@ import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import ScrollToTop from "./components/ScrollToTop";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           path="/terms-and-conditions"
           element={<TermsAndConditions />}
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

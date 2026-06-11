@@ -123,7 +123,7 @@ const Footer = () => {
             <div className="mt-6 flex gap-4">
 
               <a
-                href="#"
+                href="https://github.com/smagdum124"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
@@ -132,7 +132,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="#"
+                href="https://www.linkedin.com/in/magdum-shaikh-713221204"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
@@ -147,6 +147,14 @@ const Footer = () => {
                 className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
               >
                 <FaXTwitter size={20} />
+              </a>
+              <a
+                href="https://magdum-portfolio-tau.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
+              >
+                Portfolio
               </a>
 
             </div>

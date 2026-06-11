@@ -11,10 +11,9 @@ const Footer = () => {
     <footer className="border-t border-slate-800 bg-slate-950">
       <div className="mx-auto max-w-7xl px-6 py-14">
 
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-4">
 
           {/* Brand */}
-
           <div>
             <Link
               to="/"
@@ -32,7 +31,6 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-
           <div>
             <h3 className="text-lg font-semibold text-white">
               Quick Links
@@ -75,11 +73,43 @@ const Footer = () => {
                 Contact
               </Link>
 
+
+            </div>
+          </div>
+          {/* Legal */}
+
+          <div>
+            <h3 className="text-lg font-semibold text-white">
+              Legal
+            </h3>
+
+            <div className="mt-4 flex flex-col gap-3 text-slate-400">
+
+              <Link
+                to="/about"
+                className="hover:text-white transition"
+              >
+                About Us
+              </Link>
+
+              <Link
+                to="/privacy-policy"
+                className="hover:text-white transition"
+              >
+                Privacy Policy
+              </Link>
+
+              <Link
+                to="/terms-and-conditions"
+                className="hover:text-white transition"
+              >
+                Terms & Conditions
+              </Link>
+
             </div>
           </div>
 
           {/* Social */}
-
           <div>
             <h3 className="text-lg font-semibold text-white">
               Connect
@@ -94,6 +124,8 @@ const Footer = () => {
 
               <a
                 href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
               >
                 <FaGithub size={20} />
@@ -101,6 +133,8 @@ const Footer = () => {
 
               <a
                 href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
               >
                 <FaLinkedin size={20} />
@@ -108,6 +142,8 @@ const Footer = () => {
 
               <a
                 href="#"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
               >
                 <FaXTwitter size={20} />
@@ -119,7 +155,6 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-
         <div className="mt-12 border-t border-slate-800 pt-6 text-center text-sm text-slate-500">
           © {new Date().getFullYear()} DevPrepHub. All rights reserved.
         </div>

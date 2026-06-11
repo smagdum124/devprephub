@@ -10,12 +10,16 @@ import InterviewQuestions from "./pages/InterviewQuestions";
 import Contact from "./pages/Contact";
 import Footer from "./components/layout/Footer";
 import QuestionDetails from "./pages/QuestionDetails";
+import About from "./pages/About";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <div className="min-h-screen bg-slate-950">
       <Navbar />
-
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
@@ -26,6 +30,17 @@ function App() {
         <Route
           path="/questions/:slug"
           element={<QuestionDetails />}
+        />
+        <Route path="/about" element={<About />} />
+
+        <Route
+          path="/privacy-policy"
+          element={<PrivacyPolicy />}
+        />
+
+        <Route
+          path="/terms-and-conditions"
+          element={<TermsAndConditions />}
         />
       </Routes>
       <Footer />

@@ -9,6 +9,7 @@ import ResumeTips from "./pages/ResumeTips";
 import InterviewQuestions from "./pages/InterviewQuestions";
 import Contact from "./pages/Contact";
 import Footer from "./components/layout/Footer";
+import QuestionDetails from "./pages/QuestionDetails";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
         <Route path="/resume-tips" element={<ResumeTips />} />
         <Route path="/questions" element={<InterviewQuestions />} />
         <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/questions/:slug"
+          element={<QuestionDetails />}
+        />
       </Routes>
       <Footer />
     </div>

@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const [search, setSearch] = useState("");
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-24 pb-16">
       <div className="absolute left-1/2 top-40 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-600/20 blur-3xl"></div>
@@ -35,11 +39,16 @@ const Hero = () => {
           <input
             type="text"
             placeholder="Search React, JavaScript, Node.js..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             className="w-full rounded-2xl border border-slate-700 bg-slate-900 px-6 py-4 text-white outline-none focus:border-blue-500"
           />
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <button className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
+          <button
+            onClick={() => navigate(`/questions?search=${search}`)}
+            className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+          >
             Start Learning
           </button>
 
@@ -48,20 +57,7 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <span className="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-300">
-            React
-          </span>
-          <span className="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-300">
-            JavaScript
-          </span>
-          <span className="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-300">
-            Node.js
-          </span>
-          <span className="rounded-full bg-slate-800 px-4 py-2 text-sm text-slate-300">
-            MongoDB
-          </span>
-        </div>
+  
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
             <h3 className="text-3xl font-bold text-white">500+</h3>

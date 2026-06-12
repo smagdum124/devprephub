@@ -34,12 +34,12 @@ const InterviewQuestions = () => {
 
         <meta
           name="description"
-          content="Practice React, JavaScript, Node.js and MongoDB interview questions with detailed answers."
+          content="Practice React, JavaScript, HTML, CSS, Node.js and MongoDB interview questions with detailed answers."
         />
 
         <meta
           name="keywords"
-          content="React Interview Questions, JavaScript Interview Questions, Node.js Interview Questions, MongoDB Interview Questions"
+          content="React Interview Questions, JavaScript Interview Questions, HTML Interview Questions, CSS Interview Questions, Node.js Interview Questions, MongoDB Interview Questions"
         />
       </Helmet>
 
@@ -64,19 +64,26 @@ const InterviewQuestions = () => {
           </div>
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {["All", "React", "JavaScript", "Node.js", "MongoDB"].map(
-              (category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeCategory === category
-                      ? "bg-blue-600 text-white"
-                      : "bg-slate-800 text-slate-300 hover:bg-slate-700"
-                    }`}
-                >
-                  {category}
-                </button>
-              )
+            {[
+              "All",
+              "React",
+              "JavaScript",
+              "HTML",
+              "CSS",
+              "Node.js",
+              "MongoDB",
+            ].map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeCategory === category
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                  }`}
+              >
+                {category}
+              </button>
+            )
             )}
           </div>
 

@@ -3,6 +3,14 @@ import { categories } from "../../data/categories";
 
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiJavascript, SiMongodb } from "react-icons/si";
+import {
+
+  FaJs,
+  FaHtml5,
+  FaCss3Alt,
+
+} from "react-icons/fa";
+
 
 const Categories = () => {
   return (
@@ -28,10 +36,29 @@ const Categories = () => {
               <div
                 className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-800 text-4xl ${category.color}`}
               >
-                {category.icon === "react" && <FaReact />}
-                {category.icon === "javascript" && <SiJavascript />}
-                {category.icon === "nodejs" && <FaNodeJs />}
-                {category.icon === "mongodb" && <SiMongodb />}
+                {category.icon === "react" && (
+                  <FaReact className="text-cyan-400 text-5xl" />
+                )}
+
+                {category.icon === "javascript" && (
+                  <FaJs className="text-yellow-400 text-5xl" />
+                )}
+
+                {category.icon === "html" && (
+                  <FaHtml5 className="text-orange-500 text-5xl" />
+                )}
+
+                {category.icon === "css" && (
+                  <FaCss3Alt className="text-blue-500 text-5xl" />
+                )}
+
+                {category.icon === "nodejs" && (
+                  <FaNodeJs className="text-green-500 text-5xl" />
+                )}
+
+                {category.icon === "mongodb" && (
+                  <SiMongodb className="text-green-400 text-5xl" />
+                )}
               </div>
 
               <h3 className="mt-5 text-2xl font-semibold text-white">

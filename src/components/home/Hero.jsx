@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -52,12 +53,15 @@ const Hero = () => {
             Start Learning
           </button>
 
-          <button className="rounded-xl border border-slate-700 px-6 py-3 font-semibold text-white transition hover:border-blue-500">
+          <Link
+            to="/roadmaps"
+            className="rounded-xl border border-slate-700 px-6 py-3 font-semibold text-white transition hover:border-blue-500"
+          >
             Explore Roadmaps
-          </button>
+          </Link>
         </div>
 
-  
+
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
             <h3 className="text-3xl font-bold text-white">500+</h3>

@@ -8,8 +8,12 @@ const InterviewQuestions = () => {
 
   const initialSearch = searchParams.get("search") || "";
 
+  const initialCategory =
+    searchParams.get("category") || "All";
+
   const [searchTerm, setSearchTerm] = useState(initialSearch);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] =
+    useState(initialCategory);
 
   const filteredQuestions = allQuestions.filter((question) => {
     const matchesSearch = question.title
@@ -65,11 +69,10 @@ const InterviewQuestions = () => {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${
-                    activeCategory === category
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeCategory === category
                       ? "bg-blue-600 text-white"
                       : "bg-slate-800 text-slate-300 hover:bg-slate-700"
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>

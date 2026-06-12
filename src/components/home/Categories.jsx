@@ -1,61 +1,14 @@
-import {
-  FaReact,
-  FaJs,
-  FaHtml5,
-  FaCss3Alt,
-  FaNodeJs,
-} from "react-icons/fa";
-import { SiMongodb } from "react-icons/si";
+import { Link } from "react-router-dom";
+import { categories } from "../../data/categories";
 
-const categories = [
-  {
-    title: "React",
-    icon: <FaReact size={40} />,
-    count: "150+ Questions",
-    color: "text-cyan-400",
-    hover: "hover:border-cyan-500",
-  },
-  {
-    title: "JavaScript",
-    icon: <FaJs size={40} />,
-    count: "200+ Questions",
-    color: "text-yellow-400",
-    hover: "hover:border-yellow-500",
-  },
-  {
-    title: "HTML",
-    icon: <FaHtml5 size={40} />,
-    count: "80+ Questions",
-    color: "text-orange-500",
-    hover: "hover:border-orange-500",
-  },
-  {
-    title: "CSS",
-    icon: <FaCss3Alt size={40} />,
-    count: "100+ Questions",
-    color: "text-blue-500",
-    hover: "hover:border-blue-500",
-  },
-  {
-    title: "Node.js",
-    icon: <FaNodeJs size={40} />,
-    count: "120+ Questions",
-    color: "text-green-500",
-    hover: "hover:border-green-500",
-  },
-  {
-    title: "MongoDB",
-    icon: <SiMongodb size={40} />,
-    count: "90+ Questions",
-    color: "text-emerald-500",
-    hover: "hover:border-emerald-500",
-  },
-];
+import { FaReact, FaNodeJs } from "react-icons/fa";
+import { SiJavascript, SiMongodb } from "react-icons/si";
 
 const Categories = () => {
   return (
     <section className="px-6 py-24">
       <div className="mx-auto max-w-7xl">
+
         <h2 className="text-center text-4xl font-bold text-white">
           Popular Categories
         </h2>
@@ -64,13 +17,22 @@ const Categories = () => {
           Learn the most in-demand technologies and crack interviews faster.
         </p>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
           {categories.map((category) => (
-            <div
+            <Link
               key={category.title}
-              className={`group cursor-pointer rounded-2xl border border-slate-800 bg-slate-900 p-8 transition-all duration-300 hover:-translate-y-2 ${category.hover}`}
+              to={`/questions?category=${category.slug}`}
+              className="group rounded-2xl border border-slate-800 bg-slate-900 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10"
             >
-              <div className={category.color}>{category.icon}</div>
+              <div
+                className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-800 text-4xl ${category.color}`}
+              >
+                {category.icon === "react" && <FaReact />}
+                {category.icon === "javascript" && <SiJavascript />}
+                {category.icon === "nodejs" && <FaNodeJs />}
+                {category.icon === "mongodb" && <SiMongodb />}
+              </div>
 
               <h3 className="mt-5 text-2xl font-semibold text-white">
                 {category.title}
@@ -83,9 +45,20 @@ const Categories = () => {
               <div className="mt-5 text-blue-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 Explore →
               </div>
-            </div>
+            </Link>
           ))}
+
         </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            to="/questions"
+            className="rounded-xl bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700"
+          >
+            View All Questions
+          </Link>
+        </div>
+
       </div>
     </section>
   );

@@ -15,6 +15,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import ScrollToTop from "./components/ScrollToTop";
 import NotFound from "./pages/NotFound";
+import RoadmapDetails from "./pages/RoadmapDetails";
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
           element={<TermsAndConditions />}
         />
         <Route path="*" element={<NotFound />} />
+        <Route
+          path="/roadmaps/:slug"
+          element={<RoadmapDetails />}
+        />
       </Routes>
       <Footer />
     </div>

@@ -1,22 +1,25 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { FaCode, FaBars, FaTimes } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useTheme } from "../../context/ThemeContext";
 
 const Navbar = () => {
+  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinkClass = ({ isActive }) =>
     isActive
       ? "text-blue-400 font-medium"
-      : "text-slate-300 hover:text-white transition";
+      : "text-slate-300 hover:text-slate-900 dark:text-white transition";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-slate-300 dark:border-slate-800 bg-slate-950/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-2 text-xl font-bold text-white"
+          className="flex items-center gap-2 text-xl font-bold text-slate-900 dark:text-white"
         >
           <FaCode className="text-blue-500" />
           DevPrepHub
@@ -48,15 +51,20 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <Link
           to="/questions"
-          className="hidden md:block rounded-xl bg-blue-600 px-5 py-2 text-white transition hover:bg-blue-700"
+          className="hidden md:block rounded-xl bg-blue-600 px-5 py-2 text-slate-900 dark:text-white transition hover:bg-blue-700"
         >
           Get Started
         </Link>
-
+        <button
+          onClick={toggleTheme}
+          className="rounded-xl border border-slate-700 p-3 text-slate-900 dark:text-white"
+        >
+          {theme === "dark" ? <FaSun /> : <FaMoon />}
+        </button>
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white md:hidden"
+          className="text-slate-900 dark:text-white md:hidden"
         >
           {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
         </button>
@@ -64,7 +72,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="border-t border-slate-800 bg-slate-950 md:hidden">
+        <div className="border-t border-slate-300 dark:border-slate-800 bg-slate-950 md:hidden">
           <div className="flex flex-col gap-5 p-6">
 
             <NavLink
@@ -110,7 +118,7 @@ const Navbar = () => {
             <Link
               to="/questions"
               onClick={() => setMenuOpen(false)}
-              className="rounded-xl bg-blue-600 px-5 py-3 text-center text-white transition hover:bg-blue-700"
+              className="rounded-xl bg-blue-600 px-5 py-3 text-center text-slate-900 dark:text-white transition hover:bg-blue-700"
             >
               Get Started
             </Link>

@@ -11,7 +11,7 @@ const FeaturedRoadmaps = () => {
     <section className="px-6 py-24">
       <div className="mx-auto max-w-7xl">
 
-        <h2 className="text-center text-4xl font-bold text-white">
+        <h2 className="text-center text-4xl font-bold text-slate-900 dark:text-white">
           Featured Roadmaps
         </h2>
 
@@ -24,7 +24,7 @@ const FeaturedRoadmaps = () => {
           {featuredRoadmaps.map((roadmap) => (
             <div
               key={roadmap.id}
-              className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-blue-500"
+              className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-blue-500"
             >
               <div className="text-5xl">
 
@@ -46,7 +46,7 @@ const FeaturedRoadmaps = () => {
 
               </div>
 
-              <h3 className="mt-4 text-xl font-semibold text-white">
+              <h3 className="mt-4 text-xl font-semibold text-slate-900 dark:text-white">
                 {roadmap.title}
               </h3>
 
@@ -68,7 +68,7 @@ const FeaturedRoadmaps = () => {
         <div className="mt-10 text-center">
           <Link
             to="/roadmaps"
-            className="rounded-xl bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700"
+            className="rounded-xl bg-blue-600 px-6 py-3 text-slate-900 dark:text-white transition hover:bg-blue-700"
           >
             View All Roadmaps
           </Link>

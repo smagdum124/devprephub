@@ -13,7 +13,7 @@ const Roadmaps = () => {
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-7xl">
 
-          <h1 className="text-center text-5xl font-bold text-white">
+          <h1 className="text-center text-5xl font-bold text-slate-900 dark:text-white">
             Developer Roadmaps
           </h1>
 
@@ -26,7 +26,7 @@ const Roadmaps = () => {
             {roadmaps.map((roadmap) => (
               <div
                 key={roadmap.id}
-                className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-blue-500"
+                className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-blue-500"
               >
 
 
@@ -34,7 +34,7 @@ const Roadmaps = () => {
                   {getRoadmapIcon(roadmap.icon)}
                 </div>
 
-                <h3 className="mt-4 text-xl font-semibold text-white">
+                <h3 className="mt-4 text-xl font-semibold text-slate-900 dark:text-white">
                   {roadmap.title}
                 </h3>
 

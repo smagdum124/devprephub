@@ -29,7 +29,7 @@ const Contact = () => {
                             💬 Get In Touch
                         </span>
 
-                        <h1 className="mt-6 text-5xl font-bold text-white md:text-6xl">
+                        <h1 className="mt-6 text-5xl font-bold text-slate-900 dark:text-white md:text-6xl">
                             Let's Talk About
                             <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                                 Your Career Growth
@@ -48,8 +48,8 @@ const Contact = () => {
 
                         {/* Contact Form */}
 
-                        <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8">
-                            <h2 className="text-2xl font-semibold text-white">
+                        <div className="rounded-3xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
+                            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
                                 Send a Message
                             </h2>
 
@@ -62,19 +62,19 @@ const Contact = () => {
                                 <input
                                     type="text"
                                     placeholder="Your Name"
-                                    className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-blue-500"
+                                    className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 outline-none focus:border-blue-500"
                                 />
 
                                 <input
                                     type="email"
                                     placeholder="Your Email"
-                                    className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-blue-500"
+                                    className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 outline-none focus:border-blue-500"
                                 />
 
                                 <textarea
                                     rows="6"
                                     placeholder="Your Message"
-                                    className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none focus:border-blue-500"
+                                    className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 outline-none focus:border-blue-500"
                                 />
 
                                 <button
@@ -91,12 +91,12 @@ const Contact = () => {
 
                         <div className="space-y-6">
 
-                            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6 transition hover:border-blue-500">
+                            <div className="rounded-3xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 transition hover:border-blue-500">
                                 <div className="flex items-center gap-4">
                                     <FaEnvelope size={24} className="text-blue-400" />
 
                                     <div>
-                                        <h3 className="font-semibold text-white">
+                                        <h3 className="font-semibold text-slate-900 dark:text-white">
                                             Email
                                         </h3>
 
@@ -107,7 +107,7 @@ const Contact = () => {
                                 </div>
                             </div>
 
-                            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6 transition hover:border-blue-500">
+                            <div className="rounded-3xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 transition hover:border-blue-500">
                                 <div className="flex items-center gap-4">
                                     <FaLinkedin size={24} className="text-blue-400" />
 
@@ -128,7 +128,7 @@ const Contact = () => {
                                 </div>
                             </div>
 
-                            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6 transition hover:border-blue-500">
+                            <div className="rounded-3xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 transition hover:border-blue-500">
                                 <div className="flex items-center gap-4">
                                     <FaGithub size={24} className="text-blue-400" />
 
@@ -149,12 +149,12 @@ const Contact = () => {
                                 </div>
                             </div>
 
-                            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6 transition hover:border-blue-500">
+                            <div className="rounded-3xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 transition hover:border-blue-500">
                                 <div className="flex items-center gap-4">
                                     <FaClock size={24} className="text-blue-400" />
 
                                     <div>
-                                        <h3 className="font-semibold text-white">
+                                        <h3 className="font-semibold text-slate-900 dark:text-white">
                                             Response Time
                                         </h3>
 

@@ -19,7 +19,7 @@ import RoadmapDetails from "./pages/RoadmapDetails";
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-white text-black dark:bg-slate-950 dark:text-slate-900 dark:text-white transition-colors duration-300">
       <Navbar />
       <ScrollToTop />
       <Routes>

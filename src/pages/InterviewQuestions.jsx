@@ -45,7 +45,7 @@ const InterviewQuestions = () => {
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <h1 className="text-center text-5xl font-bold text-white">
+          <h1 className="text-center text-5xl font-bold text-slate-900 dark:text-white">
             Interview Questions
           </h1>
 
@@ -59,7 +59,7 @@ const InterviewQuestions = () => {
               placeholder="Search questions..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none focus:border-blue-500"
+              className="w-full rounded-xl border border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-slate-900 dark:text-white outline-none focus:border-blue-500"
             />
           </div>
 
@@ -77,7 +77,7 @@ const InterviewQuestions = () => {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeCategory === category
-                  ? "bg-blue-600 text-white"
+                  ? "bg-blue-600 text-slate-900 dark:text-white"
                   : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                   }`}
               >
@@ -95,13 +95,13 @@ const InterviewQuestions = () => {
             {filteredQuestions.map((question) => (
               <div
                 key={question.id}
-                className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10"
+                className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10"
               >
                 <span className="text-sm text-blue-400">
                   {question.category}
                 </span>
 
-                <h3 className="mt-3 text-xl font-semibold text-white">
+                <h3 className="mt-3 text-xl font-semibold text-slate-900 dark:text-white">
                   {question.title}
                 </h3>
 
@@ -117,7 +117,7 @@ const InterviewQuestions = () => {
 
           {filteredQuestions.length === 0 && (
             <div className="mt-12 text-center">
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">
                 No Questions Found
               </h3>
 

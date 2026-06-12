@@ -6,7 +6,7 @@ const ComingSoon = ({ title }) => {
       <div className="text-center">
         <FaRocket className="mx-auto text-6xl text-blue-500" />
 
-        <h1 className="mt-6 text-5xl font-bold text-white">
+        <h1 className="mt-6 text-5xl font-bold text-slate-900 dark:text-white">
           {title}
         </h1>
 

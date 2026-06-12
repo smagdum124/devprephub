@@ -38,13 +38,13 @@ export const getRoadmapIcon = (icon) => {
       return <SiRedux className="text-purple-500" />;
 
     case "nextjs":
-      return <SiNextdotjs className="text-white" />;
+      return <SiNextdotjs className="text-slate-900 dark:text-white" />;
 
     case "expressjs":
       return <SiExpress className="text-gray-300" />;
 
     case "github":
-      return <FaGithub className="text-white" />;
+      return <FaGithub className="text-slate-900 dark:text-white" />;
 
     case "frontend":
       return <MdDeveloperMode className="text-pink-400" />;

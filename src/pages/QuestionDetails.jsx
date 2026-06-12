@@ -10,7 +10,7 @@ const QuestionDetails = () => {
 
   if (!question) {
     return (
-      <h1 className="p-10 text-center text-white">
+      <h1 className="p-10 text-center text-slate-900 dark:text-white">
         Question Not Found
       </h1>
     );
@@ -46,11 +46,11 @@ const QuestionDetails = () => {
           {question.category}
         </span>
 
-        <h1 className="mt-4 text-4xl font-bold text-white">
+        <h1 className="mt-4 text-4xl font-bold text-slate-900 dark:text-white">
           {question.title}
         </h1>
 
-        <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-8">
+        <div className="mt-8 rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
           <p className="leading-8 text-slate-300 whitespace-pre-line">
             {question.answer}
           </p>
@@ -81,7 +81,7 @@ const QuestionDetails = () => {
         </div>
 
         <div className="mt-16">
-          <h2 className="text-2xl font-bold text-white">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
             Related Questions
           </h2>
 
@@ -91,7 +91,7 @@ const QuestionDetails = () => {
               <Link
                 key={item.slug}
                 to={`/questions/${item.slug}`}
-                className="rounded-xl border border-slate-800 bg-slate-900 p-4 text-white transition hover:border-blue-500"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-white transition hover:border-blue-500"
               >
                 {item.title}
               </Link>

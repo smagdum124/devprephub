@@ -23,7 +23,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mt-8 text-5xl font-bold leading-tight text-white md:text-7xl"
+          className="mt-8 text-5xl font-bold leading-tight text-slate-900 dark:text-white md:text-7xl"
         >
           Crack Developer Interviews
           <span className="block bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
@@ -42,20 +42,20 @@ const Hero = () => {
             placeholder="Search React, JavaScript, Node.js..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-2xl border border-slate-700 bg-slate-900 px-6 py-4 text-white outline-none focus:border-blue-500"
+            className="w-full rounded-2xl border border-slate-700 bg-white dark:bg-slate-900 px-6 py-4 text-slate-900 dark:text-white outline-none focus:border-blue-500"
           />
         </div>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <button
             onClick={() => navigate(`/questions?search=${search}`)}
-            className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+            className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-slate-900 dark:text-white transition hover:bg-blue-700"
           >
             Start Learning
           </button>
 
           <Link
             to="/roadmaps"
-            className="rounded-xl border border-slate-700 px-6 py-3 font-semibold text-white transition hover:border-blue-500"
+            className="rounded-xl border border-slate-700 px-6 py-3 font-semibold text-slate-900 dark:text-white transition hover:border-blue-500"
           >
             Explore Roadmaps
           </Link>
@@ -63,18 +63,18 @@ const Hero = () => {
 
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-            <h3 className="text-3xl font-bold text-white">500+</h3>
+          <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white">500+</h3>
             <p className="mt-2 text-slate-400">Interview Questions</p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-            <h3 className="text-3xl font-bold text-white">20+</h3>
+          <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white">20+</h3>
             <p className="mt-2 text-slate-400">Developer Roadmaps</p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-            <h3 className="text-3xl font-bold text-white">100+</h3>
+          <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white">100+</h3>
             <p className="mt-2 text-slate-400">Career Resources</p>
           </div>
         </div>

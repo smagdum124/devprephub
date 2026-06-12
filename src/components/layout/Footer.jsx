@@ -8,7 +8,7 @@ import { FaCode } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-800 bg-slate-950">
+    <footer className="border-t border-slate-300 dark:border-slate-800 bg-slate-950">
       <div className="mx-auto max-w-7xl px-6 py-14">
 
         <div className="grid gap-10 md:grid-cols-4">
@@ -17,7 +17,7 @@ const Footer = () => {
           <div>
             <Link
               to="/"
-              className="flex items-center gap-2 text-2xl font-bold text-white"
+              className="flex items-center gap-2 text-2xl font-bold text-slate-900 dark:text-white"
             >
               <FaCode className="text-blue-500" />
               DevPrepHub
@@ -32,7 +32,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
               Quick Links
             </h3>
 
@@ -40,35 +40,35 @@ const Footer = () => {
 
               <Link
                 to="/questions"
-                className="hover:text-white transition"
+                className="hover:text-slate-900 dark:text-white transition"
               >
                 Interview Questions
               </Link>
 
               <Link
                 to="/roadmaps"
-                className="hover:text-white transition"
+                className="hover:text-slate-900 dark:text-white transition"
               >
                 Roadmaps
               </Link>
 
               <Link
                 to="/blogs"
-                className="hover:text-white transition"
+                className="hover:text-slate-900 dark:text-white transition"
               >
                 Blogs
               </Link>
 
               <Link
                 to="/resume-tips"
-                className="hover:text-white transition"
+                className="hover:text-slate-900 dark:text-white transition"
               >
                 Resume Tips
               </Link>
 
               <Link
                 to="/contact"
-                className="hover:text-white transition"
+                className="hover:text-slate-900 dark:text-white transition"
               >
                 Contact
               </Link>
@@ -79,7 +79,7 @@ const Footer = () => {
           {/* Legal */}
 
           <div>
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
               Legal
             </h3>
 
@@ -87,21 +87,21 @@ const Footer = () => {
 
               <Link
                 to="/about"
-                className="hover:text-white transition"
+                className="hover:text-slate-900 dark:text-white transition"
               >
                 About Us
               </Link>
 
               <Link
                 to="/privacy-policy"
-                className="hover:text-white transition"
+                className="hover:text-slate-900 dark:text-white transition"
               >
                 Privacy Policy
               </Link>
 
               <Link
                 to="/terms-and-conditions"
-                className="hover:text-white transition"
+                className="hover:text-slate-900 dark:text-white transition"
               >
                 Terms & Conditions
               </Link>
@@ -111,7 +111,7 @@ const Footer = () => {
 
           {/* Social */}
           <div>
-            <h3 className="text-lg font-semibold text-white">
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
               Connect
             </h3>
 
@@ -126,7 +126,7 @@ const Footer = () => {
                 href="https://github.com/smagdum124"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-slate-900 dark:text-white"
               >
                 <FaGithub size={20} />
               </a>
@@ -135,7 +135,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/magdum-shaikh-713221204"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-slate-900 dark:text-white"
               >
                 <FaLinkedin size={20} />
               </a>
@@ -144,7 +144,7 @@ const Footer = () => {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-slate-900 dark:text-white"
               >
                 <FaXTwitter size={20} />
               </a>
@@ -152,7 +152,7 @@ const Footer = () => {
                 href="https://magdum-portfolio-tau.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-white"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-slate-900 dark:text-white"
               >
                 Portfolio
               </a>
@@ -163,7 +163,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 border-t border-slate-800 pt-6 text-center text-sm text-slate-500">
+        <div className="mt-12 border-t border-slate-300 dark:border-slate-800 pt-6 text-center text-sm text-slate-500">
           © {new Date().getFullYear()} DevPrepHub. All rights reserved.
         </div>
 

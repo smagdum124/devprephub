@@ -11,7 +11,7 @@ const RoadmapDetails = () => {
 
     if (!roadmap) {
         return (
-            <div className="min-h-screen flex items-center justify-center text-white">
+            <div className="min-h-screen flex items-center justify-center text-slate-900 dark:text-white">
                 Roadmap Not Found
             </div>
         );
@@ -28,7 +28,7 @@ const RoadmapDetails = () => {
                     <div className="text-5xl">
                         {getRoadmapIcon(roadmap.icon)}
                     </div>
-                    <h1 className="text-5xl font-bold text-white">
+                    <h1 className="text-5xl font-bold text-slate-900 dark:text-white">
                         {roadmap.title}
                     </h1>
 
@@ -38,9 +38,9 @@ const RoadmapDetails = () => {
                     {roadmap.description}
                 </p>
 
-                <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-900 p-8">
+                <div className="mt-10 rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
 
-                    <h2 className="text-2xl font-semibold text-white">
+                    <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
                         Learning Path
                     </h2>
 
@@ -49,7 +49,7 @@ const RoadmapDetails = () => {
                         {roadmap.steps.map((step, index) => (
                             <div
                                 key={index}
-                                className="rounded-xl border border-slate-800 bg-slate-950 p-4 text-slate-300"
+                                className="rounded-xl border border-slate-300 dark:border-slate-800 bg-slate-950 p-4 text-slate-300"
                             >
                                 ✅ {step}
                             </div>

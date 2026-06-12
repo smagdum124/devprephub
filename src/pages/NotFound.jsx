@@ -12,7 +12,7 @@ const NotFound = () => {
           404
         </h1>
 
-        <h2 className="mt-4 text-4xl font-bold text-white">
+        <h2 className="mt-4 text-4xl font-bold text-slate-900 dark:text-white">
           Oops! Lost In The Code?
         </h2>
 
@@ -24,14 +24,14 @@ const NotFound = () => {
 
           <Link
             to="/"
-            className="rounded-xl bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700"
+            className="rounded-xl bg-blue-600 px-6 py-3 text-slate-900 dark:text-white transition hover:bg-blue-700"
           >
             Back To Home
           </Link>
 
           <Link
             to="/questions"
-            className="rounded-xl border border-slate-700 px-6 py-3 text-white transition hover:border-blue-500"
+            className="rounded-xl border border-slate-700 px-6 py-3 text-slate-900 dark:text-white transition hover:border-blue-500"
           >
             Browse Questions
           </Link>

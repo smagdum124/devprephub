@@ -37,7 +37,7 @@ const WhyDevPrepHub = () => {
     <section className="px-6 py-24">
       <div className="mx-auto max-w-7xl">
 
-        <h2 className="text-center text-4xl font-bold text-white">
+        <h2 className="text-center text-4xl font-bold text-slate-900 dark:text-white">
           Why DevPrepHub?
         </h2>
 
@@ -50,13 +50,13 @@ const WhyDevPrepHub = () => {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="rounded-2xl border border-slate-800 bg-slate-900 p-8 transition hover:-translate-y-1 hover:border-blue-500"
+              className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 transition hover:-translate-y-1 hover:border-blue-500"
             >
               <div className="text-4xl text-blue-400">
                 {feature.icon}
               </div>
 
-              <h3 className="mt-5 text-xl font-semibold text-white">
+              <h3 className="mt-5 text-xl font-semibold text-slate-900 dark:text-white">
                 {feature.title}
               </h3>
 

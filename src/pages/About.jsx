@@ -16,7 +16,7 @@ const About = () => {
             </Helmet>
             <div className="min-h-screen px-6 py-20">
                 <div className="mx-auto max-w-4xl">
-                    <h1 className="text-5xl font-bold text-white">
+                    <h1 className="text-5xl font-bold text-slate-900 dark:text-white">
                         About DevPrepHub
                     </h1>
 

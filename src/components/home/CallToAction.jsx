@@ -5,9 +5,9 @@ const CallToAction = () => {
     <section className="px-6 py-24">
       <div className="mx-auto max-w-5xl">
 
-        <div className="rounded-3xl border border-slate-800 bg-slate-900 p-12 text-center">
+        <div className="rounded-3xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-12 text-center">
 
-          <h2 className="text-4xl font-bold text-white">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white">
             Ready to Crack Your Next Interview?
           </h2>
 
@@ -20,14 +20,14 @@ const CallToAction = () => {
 
             <Link
               to="/questions"
-              className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+              className="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-slate-900 dark:text-white transition hover:bg-blue-700"
             >
               Start Learning
             </Link>
 
             <Link
               to="/roadmaps"
-              className="rounded-xl border border-slate-700 px-6 py-3 font-semibold text-white transition hover:border-blue-500"
+              className="rounded-xl border border-slate-700 px-6 py-3 font-semibold text-slate-900 dark:text-white transition hover:border-blue-500"
             >
               Explore Roadmaps
             </Link>

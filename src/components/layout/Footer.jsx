@@ -8,10 +8,10 @@ import { FaCode } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-300 dark:border-slate-800 bg-slate-950">
+    <footer className="border-t border-slate-300 bg-slate-100 dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-6 py-14">
 
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-5">
 
           {/* Brand */}
           <div>
@@ -23,10 +23,10 @@ const Footer = () => {
               DevPrepHub
             </Link>
 
-            <p className="mt-4 max-w-sm text-slate-400">
-              Learn, Practice and Get Hired.
-              The ultimate platform for developers preparing
-              for interviews and building successful careers.
+            <p className="mt-4 max-w-sm text-slate-500 dark:text-slate-400">
+              Master React, JavaScript, Node.js, MongoDB and other
+              in-demand technologies through interview questions,
+              roadmaps and career resources.
             </p>
           </div>
 
@@ -36,76 +36,115 @@ const Footer = () => {
               Quick Links
             </h3>
 
-            <div className="mt-4 flex flex-col gap-3 text-slate-400">
-
+            <div className="mt-4 flex flex-col gap-3">
               <Link
                 to="/questions"
-                className="hover:text-slate-900 dark:text-white transition"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
               >
                 Interview Questions
               </Link>
 
               <Link
                 to="/roadmaps"
-                className="hover:text-slate-900 dark:text-white transition"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
               >
                 Roadmaps
               </Link>
 
               <Link
                 to="/blogs"
-                className="hover:text-slate-900 dark:text-white transition"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
               >
                 Blogs
               </Link>
 
               <Link
                 to="/resume-tips"
-                className="hover:text-slate-900 dark:text-white transition"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
               >
                 Resume Tips
               </Link>
 
               <Link
                 to="/contact"
-                className="hover:text-slate-900 dark:text-white transition"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
               >
                 Contact
               </Link>
-
-
             </div>
           </div>
-          {/* Legal */}
 
+          {/* Resources */}
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+              Resources
+            </h3>
+
+            <div className="mt-4 flex flex-col gap-3">
+              <Link
+                to="/questions?category=React"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
+              >
+                React Questions
+              </Link>
+
+              <Link
+                to="/questions?category=JavaScript"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
+              >
+                JavaScript Questions
+              </Link>
+
+              <Link
+                to="/questions?category=Node.js"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
+              >
+                Node.js Questions
+              </Link>
+
+              <Link
+                to="/questions?category=MongoDB"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
+              >
+                MongoDB Questions
+              </Link>
+
+              <Link
+                to="/roadmaps"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
+              >
+                Developer Roadmaps
+              </Link>
+            </div>
+          </div>
+
+          {/* Legal */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
               Legal
             </h3>
 
-            <div className="mt-4 flex flex-col gap-3 text-slate-400">
-
+            <div className="mt-4 flex flex-col gap-3">
               <Link
                 to="/about"
-                className="hover:text-slate-900 dark:text-white transition"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
               >
                 About Us
               </Link>
 
               <Link
                 to="/privacy-policy"
-                className="hover:text-slate-900 dark:text-white transition"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
               >
                 Privacy Policy
               </Link>
 
               <Link
                 to="/terms-and-conditions"
-                className="hover:text-slate-900 dark:text-white transition"
+                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
               >
                 Terms & Conditions
               </Link>
-
             </div>
           </div>
 
@@ -115,9 +154,9 @@ const Footer = () => {
               Connect
             </h3>
 
-            <p className="mt-4 text-slate-400">
-              Follow DevPrepHub for updates,
-              roadmaps and interview preparation content.
+            <p className="mt-4 text-slate-500 dark:text-slate-400">
+              Follow DevPrepHub for updates, roadmaps and interview
+              preparation content.
             </p>
 
             <div className="mt-6 flex gap-4">
@@ -126,7 +165,7 @@ const Footer = () => {
                 href="https://github.com/smagdum124"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-slate-900 dark:text-white"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-500 dark:text-slate-400 transition hover:border-blue-500 hover:text-blue-500"
               >
                 <FaGithub size={20} />
               </a>
@@ -135,7 +174,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/magdum-shaikh-713221204"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-slate-900 dark:text-white"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-500 dark:text-slate-400 transition hover:border-blue-500 hover:text-blue-500"
               >
                 <FaLinkedin size={20} />
               </a>
@@ -144,17 +183,18 @@ const Footer = () => {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-slate-900 dark:text-white"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-500 dark:text-slate-400 transition hover:border-blue-500 hover:text-blue-500"
               >
                 <FaXTwitter size={20} />
               </a>
+
               <a
                 href="https://magdum-portfolio-tau.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-400 transition hover:border-blue-500 hover:text-slate-900 dark:text-white"
+                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-500 dark:text-slate-400 transition hover:border-blue-500 hover:text-blue-500"
               >
-                Portfolio
+                <FaCode size={20} />
               </a>
 
             </div>
@@ -163,8 +203,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 border-t border-slate-300 dark:border-slate-800 pt-6 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} DevPrepHub. All rights reserved.
+        <div className="mt-12 border-t border-slate-300 pt-6 text-center text-sm text-slate-500 dark:border-slate-800">
+          © {new Date().getFullYear()} DevPrepHub • Built by Magdum Shaikh
         </div>
 
       </div>

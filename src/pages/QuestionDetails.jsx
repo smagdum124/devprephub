@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { allQuestions } from "../data";
+import { Helmet } from "react-helmet-async";
 
 const QuestionDetails = () => {
   const { slug } = useParams();
@@ -39,76 +40,96 @@ const QuestionDetails = () => {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen px-6 py-20">
-      <div className="mx-auto max-w-4xl">
 
-        <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400">
-          {question.category}
-        </span>
+    <>
+     <Helmet>
+    <title>
+      {question.title} | DevPrepHub
+    </title>
 
-        <h1 className="mt-4 text-4xl font-bold text-slate-900 dark:text-white">
-          {question.title}
-        </h1>
+    <meta
+      name="description"
+      content={`${question.title} interview question with detailed answer and explanation.`}
+    />
 
-        <div className="mt-8 rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
-          <p className="leading-8 text-slate-300 whitespace-pre-line">
-            {question.answer}
-          </p>
-        </div>
+    <meta
+      name="keywords"
+      content={`${question.title}, ${question.category} Interview Questions, Developer Interview Questions`}
+    />
+  </Helmet>
 
-        <div className="mt-8 flex justify-between">
 
-          {previousQuestion ? (
-            <Link
-              to={`/questions/${previousQuestion.slug}`}
-              className="text-blue-400 hover:text-blue-300"
-            >
-              ← Previous Question
-            </Link>
-          ) : (
-            <div />
-          )}
+      <div className="min-h-screen px-6 py-20">
+        <div className="mx-auto max-w-4xl">
 
-          {nextQuestion ? (
-            <Link
-              to={`/questions/${nextQuestion.slug}`}
-              className="text-blue-400 hover:text-blue-300"
-            >
-              Next Question →
-            </Link>
-          ) : null}
+          <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400">
+            {question.category}
+          </span>
 
-        </div>
+          <h1 className="mt-4 text-4xl font-bold text-slate-900 dark:text-white">
+            {question.title}
+          </h1>
 
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-            Related Questions
-          </h2>
+          <div className="mt-8 rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
+            <p className="leading-8 whitespace-pre-line text-slate-700 dark:text-slate-300">
+              {question.answer}
+            </p>
+          </div>
 
-          <div className="mt-6 grid gap-4">
+          <div className="mt-8 flex justify-between">
 
-            {relatedQuestions.map((item) => (
+            {previousQuestion ? (
               <Link
-                key={item.slug}
-                to={`/questions/${item.slug}`}
-                className="rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-white transition hover:border-blue-500"
+                to={`/questions/${previousQuestion.slug}`}
+                className="text-blue-400 hover:text-blue-300"
               >
-                {item.title}
+                ← Previous Question
               </Link>
-            ))}
+            ) : (
+              <div />
+            )}
+
+            {nextQuestion ? (
+              <Link
+                to={`/questions/${nextQuestion.slug}`}
+                className="text-blue-400 hover:text-blue-300"
+              >
+                Next Question →
+              </Link>
+            ) : null}
 
           </div>
+
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+              Related Questions
+            </h2>
+
+            <div className="mt-6 grid gap-4">
+
+              {relatedQuestions.map((item) => (
+                <Link
+                  key={item.slug}
+                  to={`/questions/${item.slug}`}
+                  className="rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 text-slate-900 dark:text-white transition hover:border-blue-500"
+                >
+                  {item.title}
+                </Link>
+              ))}
+
+            </div>
+          </div>
+
+          <Link
+            to="/questions"
+            className="mt-10 inline-block text-blue-400 hover:text-blue-300"
+          >
+            ← Back to Questions
+          </Link>
+
         </div>
-
-        <Link
-          to="/questions"
-          className="mt-10 inline-block text-blue-400 hover:text-blue-300"
-        >
-          ← Back to Questions
-        </Link>
-
       </div>
-    </div>
+    </>
   );
 };
 

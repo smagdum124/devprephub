@@ -162,6 +162,7 @@ const Footer = () => {
             <div className="mt-6 flex gap-4">
 
               <a
+                aria-label="GitHub Profile"
                 href="https://github.com/smagdum124"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -171,6 +172,7 @@ const Footer = () => {
               </a>
 
               <a
+                aria-label="LinkedIn Profile"
                 href="https://www.linkedin.com/in/magdum-shaikh-713221204"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -180,6 +182,7 @@ const Footer = () => {
               </a>
 
               <a
+              aria-label="Portfolio Website"
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"

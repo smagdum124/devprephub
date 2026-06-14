@@ -55,6 +55,7 @@ return ( <header className="sticky top-0 z-50 border-b border-slate-300 dark:bor
     <div className="hidden md:flex items-center gap-3">
 
       <button
+       aria-label="Toggle Theme"
         onClick={toggleTheme}
         className="rounded-xl border border-slate-300 dark:border-slate-700 p-3 text-slate-700 dark:text-white hover:border-blue-500 transition"
       >

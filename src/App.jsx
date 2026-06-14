@@ -16,17 +16,29 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import ScrollToTop from "./components/ScrollToTop";
 import NotFound from "./pages/NotFound";
 import RoadmapDetails from "./pages/RoadmapDetails";
+import BackToTop from "./components/BackToTop";
+import BlogDetails from "./pages/BlogDetails";
+import ResumeTipDetails from "./pages/ResumeTipDetails";
 
 function App() {
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300">
       <Navbar />
       <ScrollToTop />
+      <BackToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route
+          path="/blogs/:slug"
+          element={<BlogDetails />}
+        />
         <Route path="/roadmaps" element={<Roadmaps />} />
         <Route path="/resume-tips" element={<ResumeTips />} />
+        <Route
+          path="/resume-tips/:slug"
+          element={<ResumeTipDetails />}
+        />
         <Route path="/questions" element={<InterviewQuestions />} />
         <Route path="/contact" element={<Contact />} />
         <Route

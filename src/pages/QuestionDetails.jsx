@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { allQuestions } from "../data";
 import { Helmet } from "react-helmet-async";
+import { FaCopy, FaShareAlt } from "react-icons/fa";
 
 const QuestionDetails = () => {
   const { slug } = useParams();
@@ -8,6 +9,15 @@ const QuestionDetails = () => {
   const question = allQuestions.find(
     (item) => item.slug === slug
   );
+  const copyAnswer = () => {
+    navigator.clipboard.writeText(question.answer);
+    alert("Answer copied successfully!");
+  };
+
+  const shareQuestion = () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Question link copied!");
+  };
 
   if (!question) {
     return (
@@ -42,21 +52,21 @@ const QuestionDetails = () => {
   return (
 
     <>
-     <Helmet>
-    <title>
-      {question.title} | DevPrepHub
-    </title>
+      <Helmet>
+        <title>
+          {question.title} | DevPrepHub
+        </title>
 
-    <meta
-      name="description"
-      content={`${question.title} interview question with detailed answer and explanation.`}
-    />
+        <meta
+          name="description"
+          content={`${question.title} interview question with detailed answer and explanation.`}
+        />
 
-    <meta
-      name="keywords"
-      content={`${question.title}, ${question.category} Interview Questions, Developer Interview Questions`}
-    />
-  </Helmet>
+        <meta
+          name="keywords"
+          content={`${question.title}, ${question.category} Interview Questions, Developer Interview Questions`}
+        />
+      </Helmet>
 
 
       <div className="min-h-screen px-6 py-20">
@@ -69,7 +79,23 @@ const QuestionDetails = () => {
           <h1 className="mt-4 text-4xl font-bold text-slate-900 dark:text-white">
             {question.title}
           </h1>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <button
+              onClick={copyAnswer}
+              className="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
+            >
+              <FaCopy />
+              Copy Answer
+            </button>
 
+            <button
+              onClick={shareQuestion}
+              className="flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 px-4 py-2 text-slate-900 dark:text-white transition hover:border-blue-500"
+            >
+              <FaShareAlt />
+              Share Question
+            </button>
+          </div>
           <div className="mt-8 rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
             <p className="leading-8 whitespace-pre-line text-slate-700 dark:text-slate-300">
               {question.answer}

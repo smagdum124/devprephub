@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://devprephub-nine.vercel.app/</loc>
+  </url>
+
+  <url>
+    <loc>https://devprephub-nine.vercel.app/questions</loc>
+  </url>
+
+  <url>
+    <loc>https://devprephub-nine.vercel.app/roadmaps</loc>
+  </url>
+
+  <url>
+    <loc>https://devprephub-nine.vercel.app/blogs</loc>
+  </url>
+
+  <url>
+    <loc>https://devprephub-nine.vercel.app/resume-tips</loc>
+  </url>
+
+  <url>
+    <loc>https://devprephub-nine.vercel.app/contact</loc>
+  </url>
+
+</urlset>

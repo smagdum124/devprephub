@@ -1,6 +1,13 @@
 import { useState } from "react";
+import api from "../../services/api";
 
 const AddBlog = () => {
+  const [message, setMessage] =
+    useState("");
+
+
+  const [isError, setIsError] =
+    useState(false);
   const [formData, setFormData] =
     useState({
       title: "",
@@ -17,20 +24,64 @@ const AddBlog = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    try {
+      const { data } =
+        await api.post(
+          "/blogs",
+          formData
+        );
+
+      setMessage(
+        "✅ Blog published successfully"
+      );
+
+      setFormData({
+        title: "",
+        slug: "",
+        description: "",
+        content: "",
+      });
+
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+
+    } catch (error) {
+      setMessage(
+        "❌ Failed to publish blog"
+      );
+
+      console.log(error);
+    }
   };
+
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4"
+     className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow dark:border-slate-800 dark:bg-slate-900"
     >
       <h1 className="text-3xl font-bold">
         Add Blog
       </h1>
+      {message && (
+        <div
+          className="
+      rounded-xl
+      bg-green-100
+      px-4
+      py-3
+      text-green-700
+      dark:bg-green-900/30
+      dark:text-green-400
+    "
+        >
+          {message}
+        </div>
+      )}
 
       <input
         name="title"

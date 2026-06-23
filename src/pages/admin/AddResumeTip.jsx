@@ -1,6 +1,9 @@
 import { useState } from "react";
+import api from "../../services/api";
 
 const AddResumeTip = () => {
+  const [message, setMessage] =
+    useState("");
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -13,23 +16,60 @@ const AddResumeTip = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    try {
+      await api.post(
+        "/resume-tips",
+        formData
+      );
 
-    // Axios API Tomorrow
+      setMessage(
+        "✅ Resume Tip added successfully"
+      );
+
+      setFormData({
+        title: "",
+        description: "",
+      });
+
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+
+    } catch (error) {
+      setMessage(
+        "❌ Failed to add Resume Tip"
+      );
+
+      console.log(error);
+    }
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4"
+      className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow dark:border-slate-800 dark:bg-slate-900"
     >
       <h1 className="text-3xl font-bold">
         Add Resume Tip
       </h1>
-
+      {message && (
+        <div
+          className="
+      rounded-xl
+      bg-green-100
+      px-4
+      py-3
+      text-green-700
+      dark:bg-green-900/30
+      dark:text-green-400
+    "
+        >
+          {message}
+        </div>
+      )}
       <input
         type="text"
         name="title"

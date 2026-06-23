@@ -29,6 +29,7 @@ import Profile from "./pages/admin/Profile";
 import ManageBlogs from "./pages/admin/ManageBlogs";
 import ManageQuestions from "./pages/admin/ManageQuestions";
 import ManageResumeTips from "./pages/admin/ManageResumeTips";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   return (
@@ -99,21 +100,30 @@ function App() {
             element={<TermsAndConditions />}
           />
 
-          <Route
-            path="/login"
-            element={<Login />}
-          />
 
-          {/* <Route
+
+        </Route>
+
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
+        {/* <Route
             path="/register"
             element={<Register />}
           /> */}
 
-        </Route>
-
         {/* Admin Routes */}
 
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
 
           <Route
             index
@@ -134,10 +144,12 @@ function App() {
             path="add-resume-tip"
             element={<AddResumeTip />}
           />
+
           <Route
             path="profile"
             element={<Profile />}
           />
+
           <Route
             path="manage-blogs"
             element={<ManageBlogs />}

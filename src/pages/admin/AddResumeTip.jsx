@@ -4,10 +4,13 @@ import api from "../../services/api";
 const AddResumeTip = () => {
   const [message, setMessage] =
     useState("");
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-  });
+  const [formData, setFormData] =
+    useState({
+      title: "",
+      slug: "",
+      description: "",
+      content: "",
+    });
 
   const handleChange = (e) => {
     setFormData({
@@ -31,7 +34,9 @@ const AddResumeTip = () => {
 
       setFormData({
         title: "",
+        slug: "",
         description: "",
+        content: "",
       });
 
       setTimeout(() => {
@@ -40,6 +45,7 @@ const AddResumeTip = () => {
 
     } catch (error) {
       setMessage(
+        error.response?.data?.message ||
         "❌ Failed to add Resume Tip"
       );
 
@@ -55,46 +61,63 @@ const AddResumeTip = () => {
       <h1 className="text-3xl font-bold">
         Add Resume Tip
       </h1>
+
       {message && (
         <div
-          className="
-      rounded-xl
-      bg-green-100
-      px-4
-      py-3
-      text-green-700
-      dark:bg-green-900/30
-      dark:text-green-400
-    "
+          className={`rounded-xl px-4 py-3 ${message.includes("already") ||
+              message.includes("Failed")
+              ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+              : "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+            }`}
         >
           {message}
         </div>
       )}
+
       <input
         type="text"
         name="title"
-        placeholder="Tip Title"
+        placeholder="Resume Tip Title"
         value={formData.title}
+        onChange={handleChange}
+        className="w-full rounded-xl border p-3"
+      />
+
+      <input
+        type="text"
+        name="slug"
+        placeholder="Slug (example: react-developer-resume)"
+        value={formData.slug}
         onChange={handleChange}
         className="w-full rounded-xl border p-3"
       />
 
       <textarea
         name="description"
-        placeholder="Tip Description"
-        rows="6"
+        placeholder="Short Description"
+        rows="3"
         value={formData.description}
+        onChange={handleChange}
+        className="w-full rounded-xl border p-3"
+      />
+
+      <textarea
+        name="content"
+        placeholder="Full Resume Tip Content"
+        rows="10"
+        value={formData.content}
         onChange={handleChange}
         className="w-full rounded-xl border p-3"
       />
 
       <button
         type="submit"
-        className="rounded-xl bg-blue-600 px-6 py-3 text-white"
+        className="rounded-xl bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
       >
         Add Resume Tip
       </button>
     </form>
+
   );
 };
 

@@ -1,12 +1,36 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { blogs } from "../data/blogs";
+import { useEffect, useState } from "react";
+import api from "../services/api";
 
 const Blogs = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] =
+    useState(true);
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  const fetchBlogs = async () => {
+    try {
+      const { data } =
+        await api.get("/blogs");
+
+      setBlogs(data.blogs);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <Helmet>
-        <title>Developer Blogs | DevPrepHub</title>
+        <title>
+          Developer Blogs | DevPrepHub
+        </title>
 
         <meta
           name="description"
@@ -25,31 +49,53 @@ const Blogs = () => {
             Learn faster with blogs and interview guides.
           </p>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {loading ? (
+            <div className="mt-20 text-center">
+              <h2 className="text-2xl font-semibold">
+                Loading Blogs...
+              </h2>
+            </div>
+          ) : blogs.length === 0 ? (
+            <div className="mt-20 rounded-2xl border border-dashed p-12 text-center">
 
-            {blogs.map((blog) => (
-              <div
-                key={blog.id}
-                className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6"
-              >
-                <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
-                  {blog.title}
-                </h2>
+              <h2 className="text-3xl font-bold">
+                No Blogs Found
+              </h2>
 
-                <p className="mt-3 text-slate-500 dark:text-slate-400">
-                  {blog.description}
-                </p>
+              <p className="mt-3 text-slate-500">
+                Blogs will appear here once published.
+              </p>
 
-                <Link
-                  to={`/blogs/${blog.slug}`}
-                  className="mt-5 inline-block text-blue-500"
+            </div>
+          ) : (
+            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+              {blogs.map((blog) => (
+                <div
+                  key={blog._id}
+                  className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10"
                 >
-                  Read More →
-                </Link>
-              </div>
-            ))}
 
-          </div>
+                  <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+                    {blog.title}
+                  </h2>
+
+                  <p className="mt-3 line-clamp-3 text-slate-500 dark:text-slate-400">
+                    {blog.description}
+                  </p>
+
+                  <Link
+                    to={`/blogs/${blog.slug}`}
+                    className="mt-5 inline-block text-blue-500 hover:underline"
+                  >
+                    Read More →
+                  </Link>
+
+                </div>
+              ))}
+
+            </div>
+          )}
 
         </div>
       </div>

@@ -49,12 +49,9 @@ const AddQuestion = () => {
       });
 
     } catch (error) {
-      console.log(error);
-
       setMessage(
-        error.response?.data
-          ?.message ||
-        "❌ Failed To Add Question"
+        error.response?.data?.message ||
+        "Something went wrong"
       );
     } finally {
       setLoading(false);
@@ -67,73 +64,79 @@ const AddQuestion = () => {
     <div>
 
 
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow dark:border-slate-800 dark:bg-slate-900"
-    >
-      <h1 className="text-3xl font-bold">
-        Add Question
-      </h1>
-
-      {message && (
-        <div className="rounded-xl border border-slate-200 bg-slate-100 p-3 dark:border-slate-700 dark:bg-slate-800">
-          {message}
-        </div>
-      )}
-
-      <input
-        type="text"
-        name="title"
-        placeholder="Question Title"
-        value={formData.title}
-        onChange={handleChange}
-        className="w-full rounded-xl border p-3"
-        required
-      />
-
-      <input
-        type="text"
-        name="slug"
-        placeholder="Slug"
-        value={formData.slug}
-        onChange={handleChange}
-        className="w-full rounded-xl border p-3"
-        required
-      />
-
-      <input
-        type="text"
-        name="category"
-        placeholder="Category"
-        value={formData.category}
-        onChange={handleChange}
-        className="w-full rounded-xl border p-3"
-        required
-      />
-
-      <textarea
-        name="answer"
-        placeholder="Answer"
-        rows="10"
-        value={formData.answer}
-        onChange={handleChange}
-        className="w-full rounded-xl border p-3"
-        required
-      />
-
-      <button
-        type="submit"
-        disabled={loading}
-        className="rounded-xl bg-blue-600 px-6 py-3 text-white"
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow dark:border-slate-800 dark:bg-slate-900"
       >
-        {loading
-          ? "Adding..."
-          : "Add Question"}
-      </button>
+        <h1 className="text-3xl font-bold">
+          Add Question
+        </h1>
 
-    </form>
+        {message && (
+          <div
+            className={`rounded-xl px-4 py-3 ${message.includes("already") ||
+              message.includes("Failed")
+              ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+              : "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+              }`}
+          >
+            {message}
+          </div>
+        )}
 
-  </div>
+        <input
+          type="text"
+          name="title"
+          placeholder="Question Title"
+          value={formData.title}
+          onChange={handleChange}
+          className="w-full rounded-xl border p-3"
+          required
+        />
+
+        <input
+          type="text"
+          name="slug"
+          placeholder="Slug"
+          value={formData.slug}
+          onChange={handleChange}
+          className="w-full rounded-xl border p-3"
+          required
+        />
+
+        <input
+          type="text"
+          name="category"
+          placeholder="Category"
+          value={formData.category}
+          onChange={handleChange}
+          className="w-full rounded-xl border p-3"
+          required
+        />
+
+        <textarea
+          name="answer"
+          placeholder="Answer"
+          rows="10"
+          value={formData.answer}
+          onChange={handleChange}
+          className="w-full rounded-xl border p-3"
+          required
+        />
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="rounded-xl bg-blue-600 px-6 py-3 text-white"
+        >
+          {loading
+            ? "Adding..."
+            : "Add Question"}
+        </button>
+
+      </form>
+
+    </div>
 
 
   );

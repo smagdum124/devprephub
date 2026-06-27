@@ -51,8 +51,10 @@ const AddBlog = () => {
 
     } catch (error) {
       setMessage(
-        "❌ Failed to publish blog"
+        error.response?.data?.message ||
+        "Something went wrong"
       );
+
 
       console.log(error);
     }
@@ -62,22 +64,18 @@ const AddBlog = () => {
   return (
     <form
       onSubmit={handleSubmit}
-     className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow dark:border-slate-800 dark:bg-slate-900"
+      className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow dark:border-slate-800 dark:bg-slate-900"
     >
       <h1 className="text-3xl font-bold">
         Add Blog
       </h1>
       {message && (
         <div
-          className="
-      rounded-xl
-      bg-green-100
-      px-4
-      py-3
-      text-green-700
-      dark:bg-green-900/30
-      dark:text-green-400
-    "
+          className={`rounded-xl px-4 py-3 ${message.includes("already") ||
+            message.includes("Failed")
+            ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+            : "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+            }`}
         >
           {message}
         </div>

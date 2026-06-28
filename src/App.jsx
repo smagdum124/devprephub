@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import GoogleAnalytics from "./GoogleAnalytics";
 
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
@@ -35,12 +35,17 @@ import ManageContacts from "./pages/admin/ManageContacts";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Disclaimer from "./pages/Disclaimer";
 
+
+
+
 function App() {
+
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-300">
 
       <ScrollToTop />
       <BackToTop />
+       <GoogleAnalytics />
       <Routes>
 
         <Route element={<MainLayout />}>

@@ -5,9 +5,10 @@ import App from "./App";
 import "./index.css";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "./context/ThemeContext";
+import ReactGA from "react-ga4";
 
 
-
+ReactGA.initialize("G-LVH709RERB");
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>

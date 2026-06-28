@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 import { FaCopy, FaShareAlt } from "react-icons/fa";
 import api from "../services/api";
 
@@ -94,21 +94,20 @@ const QuestionDetails = () => {
 
   return (
     <>
-      <Helmet>
-        <title>
-          {question.title} | DevPrepHub
-        </title>
-
-        <meta
-          name="description"
-          content={question.answer.substring(0, 150)}
-        />
-
-        <meta
-          name="keywords"
-          content={`${question.title}, ${question.category}, Interview Questions`}
-        />
-      </Helmet>
+      <SEO
+        title={`${question.title} | DevPrepHub`}
+        description={question.answer.slice(0, 150)}
+        keywords={`${question.category}, Interview Questions`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Question",
+          name: question.title,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: question.answer,
+          },
+        }}
+      />
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-4xl">

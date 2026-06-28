@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../services/api";
@@ -27,16 +27,12 @@ const Blogs = () => {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Developer Blogs | DevPrepHub
-        </title>
 
-        <meta
-          name="description"
-          content="Developer blogs, interview guides and career resources."
-        />
-      </Helmet>
+      <SEO
+        title="Developer Blog | DevPrepHub"
+        description="Explore complete learning roadmaps for React, JavaScript, Node.js, MongoDB, HTML, CSS and become job-ready."
+        keywords="Developer Roadmaps, React Roadmap, JavaScript Roadmap, Node.js Roadmap, MongoDB Roadmap, DevPrepHub"
+      />
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-7xl">

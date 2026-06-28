@@ -145,6 +145,13 @@ const Footer = () => {
               >
                 Terms & Conditions
               </Link>
+
+              <Link
+               to="/disclaimer"
+               className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
+               >
+                Disclaimer
+              </Link>
             </div>
           </div>
 
@@ -182,7 +189,7 @@ const Footer = () => {
               </a>
 
               <a
-              aria-label="Portfolio Website"
+                aria-label="Portfolio Website"
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"

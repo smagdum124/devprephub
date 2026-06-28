@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 import { FaShareAlt } from "react-icons/fa";
 import api from "../services/api";
 
@@ -92,7 +92,7 @@ const ResumeTipDetails = () => {
 
   const nextTip =
     currentIndex <
-    tips.length - 1
+      tips.length - 1
       ? tips[currentIndex + 1]
       : null;
 
@@ -107,24 +107,17 @@ const ResumeTipDetails = () => {
 
   return (
     <>
-      <Helmet>
-        <title>
-          {tip.title} |
-          DevPrepHub
-        </title>
-
-        <meta
-          name="description"
-          content={
-            tip.description
-          }
-        />
-
-        <meta
-          name="keywords"
-          content={`${tip.title}, Resume Tips, Developer Resume`}
-        />
-      </Helmet>
+      <SEO
+        title={`${tip.title} | DevPrepHub`}
+        description={tip.description}
+        keywords="Resume Tips, Resume Guide"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: tip.title,
+          description: tip.description,
+        }}
+      />
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-4xl">
@@ -188,7 +181,7 @@ const ResumeTipDetails = () => {
             <div className="mt-6 grid gap-4">
 
               {relatedTips.length >
-              0 ? (
+                0 ? (
                 relatedTips.map(
                   (item) => (
                     <Link

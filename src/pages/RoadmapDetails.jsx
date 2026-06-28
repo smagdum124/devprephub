@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { roadmaps } from "../data/roadmaps";
 import { FaArrowLeft } from "react-icons/fa";
 import { getRoadmapIcon } from "../utils/getRoadmapIcon";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 const RoadmapDetails = () => {
     const { slug } = useParams();
 
@@ -20,31 +20,26 @@ const RoadmapDetails = () => {
 
     return (
         <>
-            <Helmet>
-                <title>
-                    {roadmap.title} | DevPrepHub
-                </title>
-
-                <meta
-                    name="description"
-                    content={`${roadmap.title} - Complete learning roadmap with step-by-step guide for developers.`}
-                />
-
-                <meta
-                    name="keywords"
-                    content={`${roadmap.title}, Developer Roadmap, Programming Roadmap, DevPrepHub`}
-                />
-
-                <meta
-                    property="og:title"
-                    content={`${roadmap.title} | DevPrepHub`}
-                />
-
-                <meta
-                    property="og:description"
-                    content={`${roadmap.title} - Complete learning roadmap with step-by-step guide.`}
-                />
-            </Helmet>
+            <SEO
+                title={`${roadmap.title} | DevPrepHub`}
+                description={`${roadmap.title} - Complete learning roadmap with step-by-step guide for developers.`}
+                keywords={`${roadmap.title}, Developer Roadmap, Programming Roadmap, DevPrepHub`}
+                type="article"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "TechArticle",
+                    headline: roadmap.title,
+                    description: `${roadmap.title} - Complete learning roadmap with step-by-step guide for developers.`,
+                    author: {
+                        "@type": "Organization",
+                        name: "DevPrepHub",
+                    },
+                    publisher: {
+                        "@type": "Organization",
+                        name: "DevPrepHub",
+                    },
+                }}
+            />
 
 
             <div className="min-h-screen px-6 py-20">

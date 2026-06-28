@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const AddResumeTip = () => {
   const [message, setMessage] =
@@ -28,10 +29,7 @@ const AddResumeTip = () => {
         formData
       );
 
-      setMessage(
-        "✅ Resume Tip added successfully"
-      );
-
+      toast.success("Message sent successfully");
       setFormData({
         title: "",
         slug: "",
@@ -44,10 +42,7 @@ const AddResumeTip = () => {
       }, 3000);
 
     } catch (error) {
-      setMessage(
-        error.response?.data?.message ||
-        "❌ Failed to add Resume Tip"
-      );
+      toast.error("Something went wrong");
 
       console.log(error);
     }
@@ -65,9 +60,9 @@ const AddResumeTip = () => {
       {message && (
         <div
           className={`rounded-xl px-4 py-3 ${message.includes("already") ||
-              message.includes("Failed")
-              ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
-              : "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
+            message.includes("Failed")
+            ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
+            : "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400"
             }`}
         >
           {message}

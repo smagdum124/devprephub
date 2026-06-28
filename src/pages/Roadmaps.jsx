@@ -1,4 +1,4 @@
-  import { Helmet } from "react-helmet-async";
+  import SEO from "../components/SEO";
   import { roadmaps } from "../data/roadmaps";
   import { Link } from "react-router-dom";
   import { getRoadmapIcon } from "../utils/getRoadmapIcon";
@@ -6,9 +6,11 @@
 const Roadmaps = () => {
   return (
     <>
-      <Helmet>
-        <title>Developer Roadmaps | DevPrepHub</title>
-      </Helmet>
+   <SEO
+  title="Developer Roadmaps | DevPrepHub"
+  description="Explore complete learning roadmaps for React, JavaScript, Node.js, MongoDB, HTML, CSS and become job-ready."
+  keywords="Developer Roadmaps, React Roadmap, JavaScript Roadmap, Node.js Roadmap, MongoDB Roadmap, DevPrepHub"
+/>
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-7xl">

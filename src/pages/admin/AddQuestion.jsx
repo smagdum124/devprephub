@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const AddQuestion = () => {
   const [formData, setFormData] = useState({
@@ -35,9 +36,7 @@ const AddQuestion = () => {
           formData
         );
 
-      setMessage(
-        "✅ Question Added Successfully"
-      );
+      toast.success("Message sent successfully");
 
       console.log(data);
 
@@ -49,10 +48,7 @@ const AddQuestion = () => {
       });
 
     } catch (error) {
-      setMessage(
-        error.response?.data?.message ||
-        "Something went wrong"
-      );
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
     }

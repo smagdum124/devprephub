@@ -1,4 +1,6 @@
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 import Home from "./pages/Home";
@@ -29,7 +31,9 @@ import Profile from "./pages/admin/Profile";
 import ManageBlogs from "./pages/admin/ManageBlogs";
 import ManageQuestions from "./pages/admin/ManageQuestions";
 import ManageResumeTips from "./pages/admin/ManageResumeTips";
+import ManageContacts from "./pages/admin/ManageContacts";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import Disclaimer from "./pages/Disclaimer";
 
 function App() {
   return (
@@ -99,7 +103,10 @@ function App() {
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
-
+          <Route
+            path="/disclaimer"
+            element={<Disclaimer />}
+          />
 
 
         </Route>
@@ -164,6 +171,10 @@ function App() {
             path="manage-resume-tips"
             element={<ManageResumeTips />}
           />
+          <Route
+            path="/admin/contacts"
+            element={<ManageContacts />}
+          />
 
         </Route>
 
@@ -175,6 +186,15 @@ function App() {
         />
 
       </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
 
     </div>
   );

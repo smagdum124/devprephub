@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const AddBlog = () => {
   const [message, setMessage] =
@@ -34,9 +35,7 @@ const AddBlog = () => {
           formData
         );
 
-      setMessage(
-        "✅ Blog published successfully"
-      );
+      toast.success("Message sent successfully");
 
       setFormData({
         title: "",
@@ -50,10 +49,7 @@ const AddBlog = () => {
       }, 3000);
 
     } catch (error) {
-      setMessage(
-        error.response?.data?.message ||
-        "Something went wrong"
-      );
+      toast.error("Something went wrong");
 
 
       console.log(error);

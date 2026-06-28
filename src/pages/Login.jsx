@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import SEO from "../components/SEO";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -59,7 +60,11 @@ const Login = () => {
 
   return (<div className="flex min-h-screen items-center justify-center bg-slate-100 px-6 dark:bg-slate-950">
 
-
+    <SEO
+      title="Blogs | DevPrepHub"
+      description="Developer Blogs and Career Guides"
+      keywords="Developer Blogs, React Blogs"
+    />
     <form
       onSubmit={handleSubmit}
       className="w-full max-w-md rounded-2xl border border-slate-300 bg-white p-8 shadow-xl dark:border-slate-800 dark:bg-slate-900"

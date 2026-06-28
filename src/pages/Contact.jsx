@@ -4,20 +4,67 @@ import {
     FaLinkedin,
     FaClock,
 } from "react-icons/fa";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import api from "../services/api";
 
 const Contact = () => {
+    const [loading, setLoading] = useState(false);
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            setLoading(true);
+
+            const { data } = await api.post(
+                "/contact",
+                formData
+            );
+
+            toast.success(data.message);
+
+            setFormData({
+                name: "",
+                email: "",
+                message: "",
+            });
+
+        } catch (error) {
+
+            toast.error(
+                error.response?.data?.message ||
+                "Something went wrong"
+            );
+
+        } finally {
+
+            setLoading(false);
+
+        }
+    };
     return (
         <>
-            <Helmet>
-                <title>Contact Us | DevPrepHub</title>
 
-                <meta
-                    name="description"
-                    content="Contact DevPrepHub for suggestions, feedback, collaborations and developer career guidance."
-                />
-            </Helmet>
-
+            <SEO
+                title="Contact Us | DevPrepHub"
+                description="Developer Blogs and Career Guides"
+                keywords="Developer Blogs, React Blogs"
+                name="description"
+                content="Contact DevPrepHub for suggestions, feedback, collaborations and developer career guidance."
+            />
 
             <div className="min-h-screen px-6 py-20">
                 <div className="mx-auto max-w-7xl">
@@ -57,31 +104,45 @@ const Contact = () => {
                                 Fill out the form below and we'll get back to you soon.
                             </p>
 
-                            <form className="mt-8 space-y-5">
+                            <form onSubmit={handleSubmit}
+                                className="mt-8 space-y-5">
 
                                 <input
                                     type="text"
+                                    name="name"
                                     placeholder="Your Name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
                                     className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 outline-none focus:border-blue-500"
                                 />
 
                                 <input
                                     type="email"
+                                    name="email"
                                     placeholder="Your Email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
                                     className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 outline-none focus:border-blue-500"
                                 />
 
                                 <textarea
                                     rows="6"
+                                    name="message"
                                     placeholder="Your Message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    required
                                     className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400 outline-none focus:border-blue-500"
                                 />
 
                                 <button
                                     type="submit"
-                                    className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700"
+                                    disabled={loading}
+                                    className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
                                 >
-                                    Send Message
+                                    {loading ? "Sending..." : "Send Message"}
                                 </button>
 
                             </form>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 import { FaShareAlt } from "react-icons/fa";
 import api from "../services/api";
 
@@ -84,21 +84,23 @@ const BlogDetails = () => {
 
   return (
     <>
-      <Helmet>
-        <title>
-          {blog.title} | DevPrepHub
-        </title>
-
-        <meta
-          name="description"
-          content={blog.description}
-        />
-
-        <meta
-          name="keywords"
-          content={`${blog.title}, Developer Blog, Interview Preparation`}
-        />
-      </Helmet>
+      <SEO
+        title={`${blog.title} | DevPrepHub`}
+        description={blog.description}
+        keywords={`${blog.title}, Developer Blog`}
+        type="article"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: blog.title,
+          description: blog.description,
+          author: {
+            "@type": "Organization",
+            name: "DevPrepHub",
+          },
+          datePublished: blog.createdAt,
+        }}
+      />
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-4xl">

@@ -1,19 +1,17 @@
-import { Helmet } from "react-helmet-async";
 
+import SEO from "../components/SEO";
 
 
 const About = () => {
     return (
 
         <>
-            <Helmet>
-                <title>About DevPrepHub</title>
+            <SEO
+                title="About DevPrepHub"
+                description="Learn more about DevPrepHub and our mission to help developers."
+                keywords="About DevPrepHub, React Interview, JavaScript Interview"
+            />
 
-                <meta
-                    name="description"
-                    content="Learn more about DevPrepHub and our mission to help developers crack interviews and grow their careers."
-                />
-            </Helmet>
             <div className="min-h-screen px-6 py-20">
                 <div className="mx-auto max-w-4xl">
                     <h1 className="text-5xl font-bold text-slate-900 dark:text-white">

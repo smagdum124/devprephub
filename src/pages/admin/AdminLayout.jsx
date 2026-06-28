@@ -9,6 +9,7 @@ import {
     FiHelpCircle,
     FiBook,
     FiLogOut,
+    FiMail
 } from "react-icons/fi";
 
 const AdminLayout = () => {
@@ -179,6 +180,15 @@ const AdminLayout = () => {
                     <FiBook size={20} />
                     Manage Resume Tips
                 </NavLink>
+                <NavLink
+                    to="/admin/contacts"
+                    className={navLinkClass}
+                    onClick={() => setSidebarOpen(false)}
+                >
+                    <FiMail size={20} />
+                    Contact Messages
+                </NavLink>
+
 
             </div>
 

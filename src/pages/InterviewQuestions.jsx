@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
 import api from "../services/api";
 
 const InterviewQuestions = () => {
@@ -54,7 +54,7 @@ const InterviewQuestions = () => {
       const matchesCategory =
         activeCategory === "All" ||
         question.category ===
-          activeCategory;
+        activeCategory;
 
       return (
         matchesSearch &&
@@ -73,17 +73,11 @@ const InterviewQuestions = () => {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Interview Questions |
-          DevPrepHub
-        </title>
-
-        <meta
-          name="description"
-          content="Practice React, JavaScript, HTML, CSS, Node.js and MongoDB interview questions with detailed answers."
-        />
-      </Helmet>
+      <SEO
+        title="Developer Interview | DevPrepHub"
+        description="Explore complete learning roadmaps for React, JavaScript, Node.js, MongoDB, HTML, CSS and become job-ready."
+        keywords="Developer Roadmaps, React Roadmap, JavaScript Roadmap, Node.js Roadmap, MongoDB Roadmap, DevPrepHub"
+      />
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-7xl">
@@ -123,12 +117,11 @@ const InterviewQuestions = () => {
                       category
                     )
                   }
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${
-                    activeCategory ===
+                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeCategory ===
                     category
-                      ? "bg-blue-600 text-white"
-                      : "bg-slate-800 text-slate-300 hover:bg-slate-700"
-                  }`}
+                    ? "bg-blue-600 text-white"
+                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                    }`}
                 >
                   {category}
                 </button>
@@ -189,19 +182,19 @@ const InterviewQuestions = () => {
 
               {filteredQuestions.length ===
                 0 && (
-                <div className="mt-16 text-center">
-                  <h3 className="text-2xl font-semibold">
-                    No Questions
-                    Found
-                  </h3>
+                  <div className="mt-16 text-center">
+                    <h3 className="text-2xl font-semibold">
+                      No Questions
+                      Found
+                    </h3>
 
-                  <p className="mt-2 text-slate-500">
-                    Try another
-                    keyword or
-                    category.
-                  </p>
-                </div>
-              )}
+                    <p className="mt-2 text-slate-500">
+                      Try another
+                      keyword or
+                      category.
+                    </p>
+                  </div>
+                )}
             </>
           )}
 

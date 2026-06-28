@@ -4,7 +4,9 @@ import {
   FileText,
   BookOpen,
   Award,
+  Mail
 } from "lucide-react";
+
 
 import api from "../../services/api";
 
@@ -15,6 +17,7 @@ const AdminDashboard = () => {
       totalQuestions: 0,
       totalBlogs: 0,
       totalResumeTips: 0,
+      totalContacts: 0,
     });
 
   useEffect(() => {
@@ -64,6 +67,11 @@ const AdminDashboard = () => {
       value:
         stats.totalResumeTips,
       icon: Award,
+    },
+    {
+      title: "Contacts",
+      value: stats.totalContacts,
+      icon: Mail,
     },
   ];
 
@@ -162,6 +170,9 @@ const AdminDashboard = () => {
             {
               stats.totalResumeTips
             }
+          </div>
+          <div>
+            Contacts: {stats.totalContacts}
           </div>
 
         </div>

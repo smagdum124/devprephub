@@ -1,22 +1,63 @@
-# React + Vite
+# 🚀 DevPrepHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DevPrepHub is a modern developer interview preparation platform built with React, Node.js, Express, and MongoDB.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-Interview Questions:
+🌐 Live Website:
 https://devprephub-nine.vercel.app
 
-Roadmaps:
+## ✨ Features
+
+- 💻 500+ Interview Questions
+- 🗺️ Developer Roadmaps
+- 📝 Resume Tips
+- 📚 Developer Blogs
+- 🔍 Search & Category Filter
+- 📄 SEO Optimized Pages
+- 📱 Responsive Design
+- 🌙 Dark / Light Mode
+- 🔐 Admin Dashboard
+- 📬 Contact Form
+- 📈 Google Analytics Integration
+
+## 🛠 Tech Stack
+
+Frontend
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
+- Framer Motion
+
+Backend
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+
+## 🔗 Live Demo
+
+Home
+https://devprephub-nine.vercel.app
+
+Interview Questions
+https://devprephub-nine.vercel.app/questions
+
+Roadmaps
 https://devprephub-nine.vercel.app/roadmaps
+
+Blogs
+https://devprephub-nine.vercel.app/blogs
+
+Resume Tips
+https://devprephub-nine.vercel.app/resume-tips
+
+## 👨‍💻 Author
+
+Magdum Shaikh
+
+LinkedIn:
+https://www.linkedin.com/in/magdum-shaikh-713221204
+
+GitHub:
+https://github.com/smagdum124

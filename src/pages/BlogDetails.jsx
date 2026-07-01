@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import { FaShareAlt } from "react-icons/fa";
 import api from "../services/api";
+import Breadcrumb from "../components/Breadcrumb";
 
 const BlogDetails = () => {
   const { slug } = useParams();
@@ -103,8 +104,9 @@ const BlogDetails = () => {
       />
 
       <div className="min-h-screen px-6 py-20">
-        <div className="mx-auto max-w-4xl">
 
+        <div className="mx-auto max-w-4xl">
+          <Breadcrumb />
           <h1 className="text-4xl font-bold text-slate-900 dark:text-white">
             {blog.title}
           </h1>

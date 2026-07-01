@@ -3,6 +3,7 @@ import { roadmaps } from "../data/roadmaps";
 import { FaArrowLeft } from "react-icons/fa";
 import { getRoadmapIcon } from "../utils/getRoadmapIcon";
 import SEO from "../components/SEO";
+import Breadcrumb from "../components/Breadcrumb";
 const RoadmapDetails = () => {
     const { slug } = useParams();
 
@@ -44,7 +45,7 @@ const RoadmapDetails = () => {
 
             <div className="min-h-screen px-6 py-20">
                 <div className="mx-auto max-w-5xl">
-
+ <Breadcrumb />
 
 
                     <div className="flex items-center gap-4">

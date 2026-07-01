@@ -2,6 +2,7 @@
   import { roadmaps } from "../data/roadmaps";
   import { Link } from "react-router-dom";
   import { getRoadmapIcon } from "../utils/getRoadmapIcon";
+  import Breadcrumb from "../components/Breadcrumb";
 
 const Roadmaps = () => {
   return (
@@ -14,7 +15,7 @@ const Roadmaps = () => {
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-7xl">
-
+ <Breadcrumb />
           <h1 className="text-center text-5xl font-bold text-slate-900 dark:text-white">
             Developer Roadmaps
           </h1>

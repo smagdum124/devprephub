@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import SEO from "../components/SEO";
 import api from "../services/api";
+import SkeletonCard from "../components/SkeletonCard";
+import Breadcrumb from "../components/Breadcrumb";
 
 const QUESTIONS_PER_PAGE = 12;
 
@@ -117,7 +119,7 @@ const InterviewQuestions = () => {
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-7xl">
-
+ <Breadcrumb />
           <h1 className="text-center text-5xl font-bold text-slate-900 dark:text-white">
             Interview Questions
           </h1>
@@ -160,10 +162,12 @@ const InterviewQuestions = () => {
           </p>
 
           {loading ? (
-            <div className="mt-20 text-center">
-              <h2 className="text-2xl font-semibold">
-                Loading...
-              </h2>
+            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+              {[...Array(6)].map((_, index) => (
+                <SkeletonCard key={index} />
+              ))}
+
             </div>
           ) : (
             <>

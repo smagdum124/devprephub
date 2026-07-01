@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import { FaCopy, FaShareAlt } from "react-icons/fa";
 import api from "../services/api";
+import Breadcrumb from "../components/Breadcrumb";
 
 const QuestionDetails = () => {
   const { slug } = useParams();
@@ -111,7 +112,7 @@ const QuestionDetails = () => {
 
       <div className="min-h-screen px-6 py-20">
         <div className="mx-auto max-w-4xl">
-
+          <Breadcrumb />
           <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-500">
             {question.category}
           </span>

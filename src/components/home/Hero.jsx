@@ -1,11 +1,54 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [questionCount, setQuestionCount] = useState(0);
+  const [roadmapCount, setRoadmapCount] = useState(0);
+  const [resourceCount, setResourceCount] = useState(0);
+
+
   const [search, setSearch] = useState("");
+
+
+  useEffect(() => {
+    const animateCounter = (
+      setter,
+      target,
+      duration = 2500
+    ) => {
+      let start = 0;
+      const startTime = performance.now();
+
+      const updateCounter = (currentTime) => {
+        const elapsed = currentTime - startTime;
+
+        const progress = Math.min(
+          elapsed / duration,
+          1
+        );
+
+        const value = Math.floor(
+          progress * target
+        );
+
+        setter(value);
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        }
+      };
+
+      requestAnimationFrame(updateCounter);
+    };
+
+    animateCounter(setQuestionCount, 500, 2800);
+    animateCounter(setRoadmapCount, 20, 2500);
+    animateCounter(setResourceCount, 100, 2600);
+  }, []);
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-24 pb-16">
       <div className="absolute left-1/2 top-40 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-600/20 blur-3xl"></div>
@@ -63,20 +106,7 @@ const Hero = () => {
 
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
-            <h3 className="text-3xl font-bold text-slate-900 dark:text-white">500+</h3>
-            <p className="mt-2 text-slate-400">Interview Questions</p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
-            <h3 className="text-3xl font-bold text-slate-900 dark:text-white">20+</h3>
-            <p className="mt-2 text-slate-400">Developer Roadmaps</p>
-          </div>
-
-          <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
-            <h3 className="text-3xl font-bold text-slate-900 dark:text-white">100+</h3>
-            <p className="mt-2 text-slate-400">Career Resources</p>
-          </div>
+          <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6"> <h3 className="text-3xl font-bold text-slate-900 dark:text-white"> {questionCount}+ </h3> <p className="mt-2 text-slate-400"> Interview Questions </p> </div> <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6"> <h3 className="text-3xl font-bold text-slate-900 dark:text-white"> {roadmapCount}+ </h3> <p className="mt-2 text-slate-400"> Developer Roadmaps </p> </div> <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-6"> <h3 className="text-3xl font-bold text-slate-900 dark:text-white"> {resourceCount}+ </h3> <p className="mt-2 text-slate-400"> Career Resources </p> </div>
         </div>
       </div>
     </section>

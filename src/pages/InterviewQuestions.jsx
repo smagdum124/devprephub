@@ -67,6 +67,45 @@ const InterviewQuestions = () => {
     "All",
     ...new Set(questions.map((q) => q.category)),
   ];
+  const getPagination = () => {
+    const pages = [];
+    const maxVisible = 5;
+
+    if (totalPages <= maxVisible) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      let start = Math.max(currentPage - 2, 1);
+      let end = Math.min(start + maxVisible - 1, totalPages);
+
+      if (end - start < maxVisible - 1) {
+        start = Math.max(end - maxVisible + 1, 1);
+      }
+
+      if (start > 1) {
+        pages.push(1);
+
+        if (start > 2) {
+          pages.push("...");
+        }
+      }
+
+      for (let i = start; i <= end; i++) {
+        pages.push(i);
+      }
+
+      if (end < totalPages) {
+        if (end < totalPages - 1) {
+          pages.push("...");
+        }
+
+        pages.push(totalPages);
+      }
+    }
+
+    return pages;
+  };
 
   return (
     <>
@@ -106,11 +145,10 @@ const InterviewQuestions = () => {
                 onClick={() =>
                   setActiveCategory(category)
                 }
-                className={`rounded-full px-4 py-2 text-sm font-medium transition ${
-                  activeCategory === category
-                    ? "bg-blue-600 text-white"
-                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
-                }`}
+                className={`rounded-full px-4 py-2 text-sm font-medium transition ${activeCategory === category
+                  ? "bg-blue-600 text-white"
+                  : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                  }`}
               >
                 {category}
               </button>
@@ -166,40 +204,42 @@ const InterviewQuestions = () => {
               )}
 
               {totalPages > 1 && (
-                <div className="mt-12 flex flex-wrap justify-center items-center gap-2">
+                <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
 
                   <button
                     disabled={currentPage === 1}
-                    onClick={() =>
-                      setCurrentPage((prev) => prev - 1)
-                    }
-                    className="rounded-lg bg-slate-800 px-4 py-2 text-white disabled:opacity-50"
+                    onClick={() => setCurrentPage((prev) => prev - 1)}
+                    className="rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2 text-slate-900 dark:text-white disabled:opacity-50"
                   >
                     Previous
                   </button>
 
-                  {[...Array(totalPages)].map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() =>
-                        setCurrentPage(index + 1)
-                      }
-                      className={`h-10 w-10 rounded-lg transition ${
-                        currentPage === index + 1
+                  {getPagination().map((page, index) =>
+                    page === "..." ? (
+                      <span
+                        key={index}
+                        className="px-2 text-slate-500 dark:text-slate-400"
+                      >
+                        ...
+                      </span>
+                    ) : (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentPage(page)}
+                        className={`h-10 w-10 rounded-lg font-medium transition ${currentPage === page
                           ? "bg-blue-600 text-white"
-                          : "bg-slate-800 text-slate-300 hover:bg-slate-700"
-                      }`}
-                    >
-                      {index + 1}
-                    </button>
-                  ))}
+                          : "border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white hover:bg-blue-600 hover:text-white"
+                          }`}
+                      >
+                        {page}
+                      </button>
+                    )
+                  )}
 
                   <button
                     disabled={currentPage === totalPages}
-                    onClick={() =>
-                      setCurrentPage((prev) => prev + 1)
-                    }
-                    className="rounded-lg bg-slate-800 px-4 py-2 text-white disabled:opacity-50"
+                    onClick={() => setCurrentPage((prev) => prev + 1)}
+                    className="rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2 text-slate-900 dark:text-white disabled:opacity-50"
                   >
                     Next
                   </button>

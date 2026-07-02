@@ -5,14 +5,54 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import { FaCode } from "react-icons/fa";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import api from "../../services/api";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const subscribeNewsletter = async () => {
+    if (!email.trim()) {
+      return toast.error("Please enter your email");
+    }
+
+    const emailRegex =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      return toast.error("Enter a valid email");
+    }
+
+    try {
+      setLoading(true);
+
+      const { data } = await api.post(
+        "/newsletter",
+        {
+          email,
+        }
+      );
+
+      toast.success(data.message);
+
+      setEmail("");
+    } catch (error) {
+      toast.error(
+        error.response?.data?.message ||
+          "Something went wrong"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="border-t border-slate-300 bg-slate-100 dark:border-slate-800 dark:bg-slate-950">
       <div className="mx-auto max-w-7xl px-6 py-14">
 
-        <div className="grid gap-10 md:grid-cols-3
-lg:grid-cols-6">
+        <div className="grid gap-10 md:grid-cols-3 lg:grid-cols-6">
 
           {/* Brand */}
           <div>
@@ -25,9 +65,11 @@ lg:grid-cols-6">
             </Link>
 
             <p className="mt-4 max-w-sm text-slate-500 dark:text-slate-400">
-              Master React, JavaScript, Node.js, MongoDB and other
-              in-demand technologies through interview questions,
-              roadmaps and career resources.
+              Master React, JavaScript, Node.js,
+              MongoDB and other in-demand
+              technologies through interview
+              questions, roadmaps and career
+              resources.
             </p>
           </div>
 
@@ -38,40 +80,11 @@ lg:grid-cols-6">
             </h3>
 
             <div className="mt-4 flex flex-col gap-3">
-              <Link
-                to="/questions"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
-                Interview Questions
-              </Link>
-
-              <Link
-                to="/roadmaps"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
-                Roadmaps
-              </Link>
-
-              <Link
-                to="/blogs"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
-                Blogs
-              </Link>
-
-              <Link
-                to="/resume-tips"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
-                Resume Tips
-              </Link>
-
-              <Link
-                to="/contact"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
-                Contact
-              </Link>
+              <Link to="/questions">Interview Questions</Link>
+              <Link to="/roadmaps">Roadmaps</Link>
+              <Link to="/blogs">Blogs</Link>
+              <Link to="/resume-tips">Resume Tips</Link>
+              <Link to="/contact">Contact</Link>
             </div>
           </div>
 
@@ -82,38 +95,23 @@ lg:grid-cols-6">
             </h3>
 
             <div className="mt-4 flex flex-col gap-3">
-              <Link
-                to="/questions?category=React"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
+              <Link to="/questions?category=React">
                 React Questions
               </Link>
 
-              <Link
-                to="/questions?category=JavaScript"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
+              <Link to="/questions?category=JavaScript">
                 JavaScript Questions
               </Link>
 
-              <Link
-                to="/questions?category=Node.js"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
+              <Link to="/questions?category=Node.js">
                 Node.js Questions
               </Link>
 
-              <Link
-                to="/questions?category=MongoDB"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
+              <Link to="/questions?category=MongoDB">
                 MongoDB Questions
               </Link>
 
-              <Link
-                to="/roadmaps"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
+              <Link to="/roadmaps">
                 Developer Roadmaps
               </Link>
             </div>
@@ -126,35 +124,19 @@ lg:grid-cols-6">
             </h3>
 
             <div className="mt-4 flex flex-col gap-3">
-              <Link
-                to="/about"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
-                About Us
-              </Link>
-
-              <Link
-                to="/privacy-policy"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
+              <Link to="/about">About Us</Link>
+              <Link to="/privacy-policy">
                 Privacy Policy
               </Link>
-
-              <Link
-                to="/terms-and-conditions"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
+              <Link to="/terms-and-conditions">
                 Terms & Conditions
               </Link>
-
-              <Link
-                to="/disclaimer"
-                className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition"
-              >
+              <Link to="/disclaimer">
                 Disclaimer
               </Link>
             </div>
           </div>
+
           {/* Newsletter */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
@@ -162,62 +144,75 @@ lg:grid-cols-6">
             </h3>
 
             <p className="mt-4 text-slate-500 dark:text-slate-400">
-              Get the latest interview questions, blogs and developer resources directly in your inbox.
+              Get the latest interview
+              questions, blogs and developer
+              resources directly in your inbox.
             </p>
 
             <div className="mt-5 space-y-3">
+
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) =>
+                  setEmail(e.target.value)
+                }
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    subscribeNewsletter();
+                  }
+                }}
                 className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 text-slate-900 dark:text-white outline-none focus:border-blue-500"
               />
 
               <button
-                className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700"
+                onClick={subscribeNewsletter}
+                disabled={loading}
+                className="w-full rounded-xl bg-blue-600 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Subscribe
+                {loading
+                  ? "Subscribing..."
+                  : "Subscribe"}
               </button>
+
             </div>
           </div>
-          {/* Social */}
+
+          {/* Connect */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
               Connect
             </h3>
 
             <p className="mt-4 text-slate-500 dark:text-slate-400">
-              Follow DevPrepHub for updates, roadmaps and interview
+              Follow DevPrepHub for updates,
+              roadmaps and interview
               preparation content.
             </p>
 
             <div className="mt-6 flex gap-4">
 
               <a
-                aria-label="GitHub Profile"
                 href="https://github.com/smagdum124"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-500 dark:text-slate-400 transition hover:border-blue-500 hover:text-blue-500"
               >
                 <FaGithub size={20} />
               </a>
 
               <a
-                aria-label="LinkedIn Profile"
                 href="https://www.linkedin.com/in/magdum-shaikh-713221204"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-500 dark:text-slate-400 transition hover:border-blue-500 hover:text-blue-500"
               >
                 <FaLinkedin size={20} />
               </a>
 
               <a
-                aria-label="Portfolio Website"
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-500 dark:text-slate-400 transition hover:border-blue-500 hover:text-blue-500"
               >
                 <FaXTwitter size={20} />
               </a>
@@ -226,17 +221,16 @@ lg:grid-cols-6">
                 href="https://magdum-portfolio-tau.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl border border-slate-300 dark:border-slate-800 p-3 text-slate-500 dark:text-slate-400 transition hover:border-blue-500 hover:text-blue-500"
               >
                 <FaCode size={20} />
               </a>
 
             </div>
+
           </div>
 
         </div>
 
-        {/* Bottom */}
         <div className="mt-12 border-t border-slate-300 pt-6 text-center text-sm text-slate-500 dark:border-slate-800">
           © {new Date().getFullYear()} DevPrepHub • Built by Magdum Shaikh
         </div>

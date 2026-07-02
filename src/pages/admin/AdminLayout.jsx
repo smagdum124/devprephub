@@ -189,7 +189,14 @@ const AdminLayout = () => {
                     Contact Messages
                 </NavLink>
 
-
+                <NavLink
+                    to="/admin/subscribers"
+                    className={navLinkClass}
+                    onClick={() => setSidebarOpen(false)}
+                >
+                    <FiMail size={20} />
+                    Subscribers
+                </NavLink>
             </div>
 
         </aside>

@@ -34,6 +34,7 @@ import ManageResumeTips from "./pages/admin/ManageResumeTips";
 import ManageContacts from "./pages/admin/ManageContacts";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Disclaimer from "./pages/Disclaimer";
+import ManageSubscribers from "./pages/admin/ManageSubscribers";
 
 
 
@@ -45,7 +46,7 @@ function App() {
 
       <ScrollToTop />
       <BackToTop />
-       <GoogleAnalytics />
+      <GoogleAnalytics />
       <Routes>
 
         <Route element={<MainLayout />}>
@@ -179,6 +180,10 @@ function App() {
           <Route
             path="/admin/contacts"
             element={<ManageContacts />}
+          />
+          <Route
+            path="subscribers"
+            element={<ManageSubscribers />}
           />
 
         </Route>

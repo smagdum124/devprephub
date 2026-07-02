@@ -73,6 +73,11 @@ const AdminDashboard = () => {
       value: stats.totalContacts,
       icon: Mail,
     },
+    {
+      title: "Subscribers",
+      value: stats.totalSubscribers,
+      icon: Mail
+    }
   ];
 
   return (<div className="p-6">
